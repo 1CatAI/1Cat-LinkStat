@@ -44,6 +44,10 @@
 - `expanded`：逐链路明细模式
 - `matrix`：NVLink 拓扑矩阵模式，并附带每张 GPU 的实时 RX/TX 条形图
 
+```bash
+1catlinkstat --links matrix
+```
+
 实时监控界面当前包括：
 
 - 全屏 TUI 主界面
