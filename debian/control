@@ -1,0 +1,26 @@
+Source: 1catlinkstat
+Section: utils
+Priority: optional
+Maintainer: OpenAI Codex <codex@openai.com>
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-sequence-python3,
+ pybuild-plugin-pyproject,
+ python3-all,
+ python3-setuptools
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+
+Package: 1catlinkstat
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+ python3 (>= 3.10)
+Recommends:
+ datacenter-gpu-manager
+Description: nvtop-style NVIDIA GPU monitor with NVLink visibility
+  1CatLinkStat is a real-time terminal GPU monitor for NVIDIA systems.
+  It reports GPU utilization, memory, clocks, power, PCIe activity,
+  active NVLink channel count, configured NVLink bandwidth, and real
+  NVLink RX/TX totals through DCGM when supported by the platform.

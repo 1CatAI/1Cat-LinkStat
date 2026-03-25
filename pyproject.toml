@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "1CatLinkStat"
+version = "0.1.0"
+description = "Real-time GPU monitor with NVLink link count and rate visibility."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "OpenAI Codex" },
+]
+keywords = ["gpu", "nvlink", "nvml", "cli", "monitor"]
+classifiers = [
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: System :: Monitoring",
+  "Topic :: Utilities",
+]
+dependencies = []
+
+[project.scripts]
+1catlinkstat = "cat_linkstat.cli:main"
+1CatLinkStat = "cat_linkstat.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
