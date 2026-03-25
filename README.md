@@ -2,6 +2,9 @@
 
 `1CatLinkStat` 是一个面向 Linux NVIDIA 平台的实时 GPU 终端监控工具。它的启动方式尽量接近 `nvtop`，可以直接从终端一键启动，同时补上 `nvtop` 在 V100 这类平台上通常没有提供的 NVLink 可视化能力。
 
+<img width="1978" height="1549" alt="image" src="https://github.com/user-attachments/assets/fe562895-4571-47fd-a745-ff94694ef613" />
+
+
 ## 版本信息
 
 - 程序版本：`0.1.0`
