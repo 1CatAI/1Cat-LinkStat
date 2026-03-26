@@ -113,6 +113,7 @@ class DcgmiNvLinkSampler:
     def __init__(self, sample_delay_ms: int = 200) -> None:
         self._dcgmi = shutil.which("dcgmi")
         self._sample_delay_ms = max(50, sample_delay_ms)
+        self._sample_count = 2
         self._supported = False
         if self._dcgmi is not None:
             self._supported = self._probe_support()
@@ -150,7 +151,7 @@ class DcgmiNvLinkSampler:
             "-d",
             str(self._sample_delay_ms),
             "-c",
-            "1",
+            str(self._sample_count),
         ]
         try:
             completed = subprocess.run(
@@ -164,9 +165,12 @@ class DcgmiNvLinkSampler:
             return {}
         if completed.returncode != 0 or not completed.stdout.strip():
             return {}
+        return self.parse_dmon_output(completed.stdout)
 
+    @staticmethod
+    def parse_dmon_output(raw_text: str) -> dict[int, NvLinkLiveSample]:
         samples: dict[int, NvLinkLiveSample] = {}
-        for raw_line in completed.stdout.splitlines():
+        for raw_line in raw_text.splitlines():
             line = raw_line.strip()
             if not line or line.startswith("#") or line == "ID":
                 continue
@@ -179,6 +183,8 @@ class DcgmiNvLinkSampler:
                 rx_bytes_per_s = float(parts[3])
             except ValueError:
                 continue
+            # dcgmi dmon often emits an initial warm-up row with zeroed counters.
+            # Keep overwriting so the latest sample wins when multiple rows are returned.
             samples[gpu_index] = NvLinkLiveSample(
                 total_rx_bytes_per_s=rx_bytes_per_s,
                 total_tx_bytes_per_s=tx_bytes_per_s,

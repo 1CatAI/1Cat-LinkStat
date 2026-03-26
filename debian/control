@@ -19,8 +19,12 @@ Depends:
  python3 (>= 3.10)
 Recommends:
  datacenter-gpu-manager
-Description: nvtop-style NVIDIA GPU monitor with NVLink visibility
+Suggests:
+ nvidia-cuda-toolkit
+Description: nvtop-style NVIDIA GPU monitor and NVLink microbenchmark
   1CatLinkStat is a real-time terminal GPU monitor for NVIDIA systems.
   It reports GPU utilization, memory, clocks, power, PCIe activity,
   active NVLink channel count, configured NVLink bandwidth, and real
   NVLink RX/TX totals through DCGM when supported by the platform.
+  It also ships a bundled CUDA microbenchmark launcher for quick
+  peer-to-peer bandwidth validation on systems with nvcc available.

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "1CatLinkStat"
-version = "0.1.0"
+version = "0.1.1"
 description = "Real-time GPU monitor with NVLink link count and rate visibility."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -28,9 +28,14 @@ dependencies = []
 [project.scripts]
 1catlinkstat = "cat_linkstat.cli:main"
 1CatLinkStat = "cat_linkstat.cli:main"
+1catlinkstat-bench = "cat_linkstat.bench:main"
+1CatLinkStat-bench = "cat_linkstat.bench:main"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
+
+[tool.setuptools.package-data]
+cat_linkstat = ["*.cu"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

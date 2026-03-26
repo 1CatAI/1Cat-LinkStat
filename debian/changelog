@@ -1,3 +1,16 @@
+1catlinkstat (0.1.1-1) unstable; urgency=medium
+
+  * Add bundled CUDA NVLink microbenchmark launcher.
+  * Promote project release to 0.1.1.
+
+ -- OpenAI Codex <codex@openai.com>  Thu, 26 Mar 2026 11:40:00 +0800
+
+1catlinkstat (0.1.0-2) unstable; urgency=medium
+
+  * Fix DCGM NVLink throughput sampling by using the latest dmon sample.
+
+ -- OpenAI Codex <codex@openai.com>  Thu, 26 Mar 2026 00:10:00 +0800
+
 1catlinkstat (0.1.0-1) unstable; urgency=medium
 
   * Initial Debian package for 1CatLinkStat.
