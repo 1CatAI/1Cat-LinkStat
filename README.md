@@ -22,6 +22,10 @@
 
 `1CatLinkStat` 当前支持：
 
+<img width="1654" height="1351" alt="image" src="https://github.com/user-attachments/assets/aa9cb633-818a-46f5-8cab-5663f9cb5b7d" />
+
+<img width="1236" height="665" alt="image" src="https://github.com/user-attachments/assets/14a19fed-31a4-4093-bb22-5cf6bd22a983" />
+
 - 实时显示 GPU 利用率、显存占用、温度、功耗、时钟
 - 实时显示 PCIe 代际、链路宽度、RX、TX
 - 实时显示 NVLink 活跃通道数
